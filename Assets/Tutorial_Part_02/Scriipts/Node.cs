@@ -7,9 +7,6 @@ public class Node
     public List<Edge> edgeList = new List<Edge>();
     public Node path = null;
     GameObject id;
-    public float xPos;
-    public float yPos;
-    public float zPos;
 
 
     public float f, g, h;
@@ -18,9 +15,6 @@ public class Node
     public Node(GameObject i )
     {
         id = i;
-        xPos = i.transform.position.x;
-        zPos = i.transform.position.z;
-        yPos = i.transform.position.y;
         path = null;
     }
 

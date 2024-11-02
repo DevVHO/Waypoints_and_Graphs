@@ -53,7 +53,7 @@ public class Graph
 
         start.g = 0;
         start.h = distance(start, end);
-        start.f = start.f;
+        start.f = start.h;
 
         open.Add(start);
         while(open.Count > 0)
@@ -62,7 +62,7 @@ public class Graph
             Node thisNode = open[i];
             if(thisNode.getId() == endId)
             {
-                //ReconstructPath(start, end)
+                ReconstructPath(start, end);
                 return true;
             }
 
@@ -99,23 +99,37 @@ public class Graph
         return false;
     }
 
+    public void ReconstructPath(Node startId, Node endId)
+    {
+        pathList.Clear();
+        pathList.Add(endId);
+
+        var p = endId.cameFrom;
+        while(p != startId && p != null)
+        {
+            pathList.Insert(0, p);
+            p = p.cameFrom;
+        }
+        pathList.Insert(0, startId);
+    }
+
     float distance (Node a, Node b)
     {
         return (Vector3.SqrMagnitude(a.getId().transform.position - b.getId().transform.position));
     }
     int lowestF(List<Node> l )
     {
-        float lowest = 0;
+        float lowestf = 0;
         int count = 0;
         int iteratorCount = 0;
 
-        lowest = l[0].f;
+        lowestf = l[0].f;
 
         for (int i = 1; i < l.Count; i++)
         {
-            if (l[i].f <= lowest)
+            if (l[i].f <= lowestf)
             {
-                lowest = l[i].f;
+                lowestf = l[i].f;
                 iteratorCount = count;
             }
             count++;
