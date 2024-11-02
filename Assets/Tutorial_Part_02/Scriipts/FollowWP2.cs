@@ -27,16 +27,20 @@ public class FollowWP2 : MonoBehaviour
 
     public void GoToHeli()
     {
-        g.AStar(currentNode, wps[0]);
+        g.AStar(currentNode, wps[12]);
         currentWP = 0;
     }
 
     public void GoToRuin()
     {
-        g.AStar(currentNode, wps[1]);
+        g.AStar(currentNode, wps[4]);
         currentWP = 0;
     }
-
+    public void GoToFactory()
+    {
+        g.AStar(currentNode, wps[8]);
+            currentWP = 0;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -64,7 +68,7 @@ public class FollowWP2 : MonoBehaviour
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation,
                                                        Quaternion.LookRotation(direction),
                                                        Time.deltaTime * rotSpeed);
-            this.transform.Translate(0, 0, speed * Time.deltaTime);
+            this.transform.Translate(0.0f, 0.0f, speed * Time.deltaTime);
                                                        
         }
 
