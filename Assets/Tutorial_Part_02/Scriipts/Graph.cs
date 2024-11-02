@@ -6,7 +6,7 @@ public class Graph
 {
     List<Edge> edges = new List<Edge>();
     List<Node> nodes = new List<Node>();
-    List<Node> pathList = new List<Node>();
+    public List<Node> pathList = new List<Node>();
 
     public Graph () { }
 
@@ -31,7 +31,7 @@ public class Graph
     {
         foreach(Node n in nodes)
         {
-            if(n.getId() ==id)
+            if(n.getID() ==id)
                 return n;
         }
         return null;
@@ -60,7 +60,7 @@ public class Graph
         {
             int i = lowestF(open);
             Node thisNode = open[i];
-            if(thisNode.getId() == endId)
+            if(thisNode.getID() == endId)
             {
                 ReconstructPath(start, end);
                 return true;
@@ -71,7 +71,7 @@ public class Graph
             Node neighbour;
             foreach (Edge e in thisNode.edgeList)
             {
-                neighbour = e.endnode;
+                neighbour = e.endNode;
 
                 if (closed.IndexOf(neighbour) > -1)
                     continue;
@@ -115,7 +115,7 @@ public class Graph
 
     float distance (Node a, Node b)
     {
-        return (Vector3.SqrMagnitude(a.getId().transform.position - b.getId().transform.position));
+        return (Vector3.SqrMagnitude(a.getID().transform.position - b.getID().transform.position));
     }
     int lowestF(List<Node> l )
     {

@@ -6,11 +6,10 @@ public class Node
 {
     public List<Edge> edgeList = new List<Edge>();
     public Node path = null;
-    GameObject id;
-
-
     public float f, g, h;
     public Node cameFrom;
+
+    GameObject id;
 
     public Node(GameObject i )
     {
@@ -18,7 +17,7 @@ public class Node
         path = null;
     }
 
-    public GameObject getId()
+    public GameObject getID()
     {
         return id;
     }

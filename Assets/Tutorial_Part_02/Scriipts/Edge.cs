@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Edge 
 {
-    public Node startnode;
-    public Node endnode;
+    public Node startNode;
+    public Node endNode;
 
     public Edge(Node from, Node to)
     {
-        startnode = from;
-        endnode = to;
+        startNode = from;
+        endNode = to;
     }
 }
